@@ -1,8 +1,19 @@
+import { useEffect, useState } from "react";
 import TodoItem from "./TodoItem";
 
 const todos = ["first, second, third"];
 
 export default function TodoList() {
+  const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    const url = "http://localhost:3030/jsonstore/todos";
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setTodos(Object.values(data)))
+      .catch((err) => console.log(err.message));
+  }, []);
+
   return (
     <>
       <table className="table">
@@ -14,9 +25,9 @@ export default function TodoList() {
           </tr>
         </thead>
         <tbody>
-          <TodoItem />
-          <TodoItem />
-          <TodoItem />
+          {todos.map((todo) => (
+            <TodoItem key={todo._id} todo={todo} />
+          ))}
         </tbody>
       </table>
     </>
