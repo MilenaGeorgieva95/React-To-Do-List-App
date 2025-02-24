@@ -247,15 +247,6 @@ body {
 
 /* Table item */
 
-.todo {
-  margin-bottom: 5px;
-  background-color: rgb(163, 95, 95);
-}
-
-.is-completed {
-  background-color: rgb(95, 163, 101);
-}
-
 .todo-action .todo-btn {
   background: #24292f;
   border: none;

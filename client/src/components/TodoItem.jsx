@@ -1,9 +1,15 @@
-export default function TodoItem(props) {
+import styles from "./TodoItem.module.css";
+
+export default function TodoItem({ text, isCompleted }) {
+  const classNames = [styles.todo];
+  if (isCompleted) {
+    classNames.push(styles["is-completed"]);
+  }
   return (
     <>
-      <tr className="todo is-completed">
-        <td>Give dog a bath</td>
-        <td>Complete</td>
+      <tr className={classNames.join(" ")}>
+        <td>{text}</td>
+        <td>{isCompleted ? "Complete" : "Incomplete"}</td>
         <td className="todo-action">
           <button className="btn todo-btn">Change status</button>
         </td>

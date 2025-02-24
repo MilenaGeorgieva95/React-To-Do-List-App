@@ -1,0 +1,8 @@
+.todo {
+  margin-bottom: 5px;
+  background-color: rgb(163, 95, 95);
+}
+
+.is-completed {
+  background-color: rgb(95, 163, 101);
+}
